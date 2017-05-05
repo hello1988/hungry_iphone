@@ -1,12 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\p1\searchCtrl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\homeCtrl.cs">
     <Files>
-      <File FileName="Assets\script\page\pageBase.cs" Line="16" Column="2" />
-      <File FileName="Assets\script\page\page1Ctrl.cs" Line="31" Column="9" />
-      <File FileName="Assets\script\p1\searchCtrl.cs" Line="44" Column="3" />
-      <File FileName="Assets\script\DataMgr.cs" Line="20" Column="24" />
-      <File FileName="Assets\script\p1\playAni.cs" Line="42" Column="8" />
+      <File FileName="Assets\script\p1\searchCtrl.cs" Line="113" Column="6" />
+      <File FileName="Assets\script\page\page1Ctrl.cs" Line="31" Column="2" />
+      <File FileName="Assets\script\p1\playAni.cs" Line="28" Column="38" />
+      <File FileName="Assets\script\homeCtrl.cs" Line="72" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
