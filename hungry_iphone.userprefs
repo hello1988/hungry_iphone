@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/script/page/page1Ctrl.cs">
+    <Files>
+      <File FileName="Assets/script/page/pageBase.cs" Line="11" Column="36" />
+      <File FileName="Assets/script/page/pageMgr.cs" Line="80" Column="1" />
+      <File FileName="Assets/script/DataMgr.cs" Line="11" Column="3" />
+      <File FileName="Assets/script/homeCtrl.cs" Line="106" Column="6" />
+      <File FileName="Assets/script/UIMgr.cs" Line="53" Column="31" />
+      <File FileName="Assets/script/page/page1Ctrl.cs" Line="5" Column="34" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
