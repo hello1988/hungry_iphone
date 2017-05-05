@@ -14,6 +14,8 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 	private GameObject searchImg;
 	[SerializeField]
 	private GameObject[] dotList;
+	[SerializeField]
+	private page2Ctrl pageCtrl;
 
 	private Sprite[][] aniSprite;
 	private SEARCH_WAY curSearchWay = SEARCH_WAY.WAY1;
@@ -74,12 +76,14 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 		Vector3 offset = new Vector3 (pos.x-startPos.x, 0, 0);
 		searchImg.transform.localPosition = oriPos+offset;
 
-		if( offset.x < -100 )
+		int totalWay = Enum.GetNames (typeof(SEARCH_WAY)).Length;
+		int iWay = (int)curSearchWay;
+		if( (offset.x < -100) && (iWay < totalWay-1) )
 		{
 			pressing = false;
 			LeanTween.moveLocalX (searchImg, -1000, 0.3f).setOnComplete (nextWay);
 		}
-		else if( offset.x > 100 )
+		else if( (offset.x > 100) && (iWay > 0) )
 		{
 			pressing = false;
 			LeanTween.moveLocalX (searchImg, 1000, 0.3f).setOnComplete (preWay);
@@ -106,6 +110,11 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 		int totalWay = Enum.GetNames (typeof(SEARCH_WAY)).Length;
 		SEARCH_WAY way = (SEARCH_WAY)(((int)curSearchWay+totalWay-1)%totalWay);
 		setSearchWay (way);
+	}
+
+	public void onSearchImgClick()
+	{
+		pageCtrl.nextPage (curSearchWay);
 	}
 
 	private void setSearchWay( SEARCH_WAY way, bool playAni = true )

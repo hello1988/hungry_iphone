@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Const;
 
-public class page1Ctrl : pageBase 
+public class page2Ctrl : pageBase 
 {
+	[SerializeField]
+	private GameObject searchUI;
+
 	void Awake () 
 	{
 	}
@@ -19,6 +22,11 @@ public class page1Ctrl : pageBase
 	public override void onPageEnable() 
 	{
 		UIMgr.Instance.setBackground (BG.P0);
+		searchUI.SetActive (true);
 	}
 
+	public void nextPage( SEARCH_WAY way )
+	{
+		pageMgr.Instance.nextPage (3);
+	}
 }
