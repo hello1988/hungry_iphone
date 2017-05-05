@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Const;
 
 public class homeCtrl : MonoBehaviour 
 {
-	public enum CIRCLE_COLOR
-	{
-		YELLOW,
-		GRAY,
-	}
-
 	[SerializeField]
 	private GameObject circle;
 	[SerializeField]

@@ -71,6 +71,8 @@
      <Compile Include="Assets\script\DontDestroy.cs" />
      <Compile Include="Assets\script\UIMgr.cs" />
      <Compile Include="Assets\script\homeCtrl.cs" />
+     <Compile Include="Assets\script\maskClick.cs" />
+     <Compile Include="Assets\script\p1\numberCtrl.cs" />
      <Compile Include="Assets\script\page\page1Ctrl.cs" />
      <Compile Include="Assets\script\page\pageBase.cs" />
      <Compile Include="Assets\script\page\pageMgr.cs" />

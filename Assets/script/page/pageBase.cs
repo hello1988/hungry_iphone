@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Const;
 
 public class pageBase : MonoBehaviour 
 {
@@ -9,7 +10,7 @@ public class pageBase : MonoBehaviour
 	protected GameObject nextBtn;
 
 	protected bool homeVisible = true;
-	protected homeCtrl.CIRCLE_COLOR circleColor = homeCtrl.CIRCLE_COLOR.YELLOW;
+	protected CIRCLE_COLOR circleColor = CIRCLE_COLOR.GREEN;
 
 	public virtual void onPageEnable(){}
 

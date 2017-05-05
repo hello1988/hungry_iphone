@@ -10,6 +10,12 @@ namespace Const
 	{
 		P1,
 	}
+
+	public enum CIRCLE_COLOR
+	{
+		GREEN,
+		YELLOW,
+	}
 }
 
 public class DataMgr : MonoBehaviour 

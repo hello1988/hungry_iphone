@@ -10,6 +10,10 @@ public class page1Ctrl : pageBase
 	private Sprite[] blueToothSprite;
 	[SerializeField]
 	private Image blueToothBtn;
+	[SerializeField]
+	private GameObject evaluationNumber;
+	[SerializeField]
+	private GameObject evaluationUI;
 
 	private bool isBlueToothOn;
 	// Use this for initialization
@@ -22,7 +26,7 @@ public class page1Ctrl : pageBase
 		
 	}
 
-	void OnEnable() 
+	void onPageEnable() 
 	{
 		UIMgr.Instance.setBackground (BG.P1);
 		setBlueTooth(false);
@@ -41,11 +45,17 @@ public class page1Ctrl : pageBase
 
 	public void setEvaluationNumber(int num)
 	{
-		
+		numberCtrl ctrl = evaluationNumber.GetComponent<numberCtrl> ();
+		ctrl.setNumber (num);
 	}
 
 	public void showEvaluationUI()
 	{
-		
+		evaluationUI.SetActive (true);
+	}
+
+	public void nextPage()
+	{
+		pageMgr.Instance.nextPage (2);
 	}
 }
