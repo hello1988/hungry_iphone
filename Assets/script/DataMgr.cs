@@ -16,6 +16,13 @@ namespace Const
 		GREEN,
 		YELLOW,
 	}
+
+	public enum SEARCH_WAY
+	{
+		WAY1,
+		WAY2,
+		WAY3,
+	}
 }
 
 public class DataMgr : MonoBehaviour 

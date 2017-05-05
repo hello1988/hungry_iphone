@@ -13,23 +13,35 @@ public class page1Ctrl : pageBase
 	[SerializeField]
 	private GameObject evaluationNumber;
 	[SerializeField]
+	private GameObject mainUI;
+	[SerializeField]
 	private GameObject evaluationUI;
+	[SerializeField]
+	private GameObject searchUI;
 
 	private bool isBlueToothOn;
-	// Use this for initialization
-	void Start () {
-		
+	private GameObject[] UIList;
+	void Awake () 
+	{
+		UIList = new GameObject[]{mainUI, evaluationUI, searchUI};
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		
 	}
 
-	void onPageEnable() 
+	public override void onPageEnable() 
 	{
 		UIMgr.Instance.setBackground (BG.P1);
 		setBlueTooth(false);
+
+		foreach (GameObject ui in UIList)
+		{
+			ui.SetActive (false);
+		}
+		mainUI.SetActive (true);
 	}
 
 	public void switchBlueTooth()
@@ -51,7 +63,38 @@ public class page1Ctrl : pageBase
 
 	public void showEvaluationUI()
 	{
+		foreach (GameObject ui in UIList)
+		{
+			ui.SetActive (false);
+		}
 		evaluationUI.SetActive (true);
+	}
+
+	public void hideEvaluationUI()
+	{
+		foreach (GameObject ui in UIList)
+		{
+			ui.SetActive (false);
+		}
+		mainUI.SetActive (true);
+	}
+
+	public void showSearchUI()
+	{
+		foreach (GameObject ui in UIList)
+		{
+			ui.SetActive (false);
+		}
+		searchUI.SetActive (true);
+	}
+
+	public void hideSearchUI()
+	{
+		foreach (GameObject ui in UIList)
+		{
+			ui.SetActive (false);
+		}
+		mainUI.SetActive (true);
 	}
 
 	public void nextPage()
