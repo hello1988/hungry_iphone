@@ -9,6 +9,7 @@ namespace Const
 	public enum BG
 	{
 		P0,
+		P3,
 	}
 
 	public enum CIRCLE_COLOR

@@ -114,6 +114,7 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 
 	public void onSearchImgClick()
 	{
+		// Debug.logger.Log (string.Format("onSearchImgClick : {0}",curSearchWay));
 		pageCtrl.nextPage (curSearchWay);
 	}
 
