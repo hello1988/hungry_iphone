@@ -28,6 +28,8 @@ public class page0Ctrl : pageBase
 	{
 		UIMgr.Instance.setBackground (BG.P0);
 		setBlueTooth(false);
+
+		setEvaluationNumber (5);
 	}
 
 	public void switchBlueTooth()
@@ -44,7 +46,7 @@ public class page0Ctrl : pageBase
 	public void setEvaluationNumber(int num)
 	{
 		numberCtrl ctrl = evaluationNumber.GetComponent<numberCtrl> ();
-		ctrl.setNumber (num);
+		ctrl.setValue (num);
 	}
 
 	public void showEvaluationUI()

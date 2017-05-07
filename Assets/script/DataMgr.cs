@@ -10,6 +10,7 @@ namespace Const
 	{
 		P0,
 		P3,
+		P4,
 	}
 
 	public enum CIRCLE_COLOR
@@ -34,6 +35,8 @@ public class DataMgr : MonoBehaviour
 		get{return _instance;}
 	}
 
+	private int budget = 300;
+
 	// Use this for initialization
 	private void Awake ()
 	{
@@ -42,11 +45,22 @@ public class DataMgr : MonoBehaviour
 
 	public void Start()
 	{
+		budget = 300;
 	}
 
 	public void resetData()
 	{
 		Start ();
+	}
+
+	public int getBudget()
+	{
+		return budget;
+	}
+
+	public void setBudget ( int num )
+	{
+		budget = num;
 	}
 }
 

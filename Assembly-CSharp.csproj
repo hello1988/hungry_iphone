@@ -78,10 +78,12 @@
      <Compile Include="Assets\script\p2\searchCtrl.cs" />
      <Compile Include="Assets\script\p3\dragAndDrop.cs" />
      <Compile Include="Assets\script\p3\dragTip.cs" />
+     <Compile Include="Assets\script\p4\budgetCtrl.cs" />
      <Compile Include="Assets\script\page\page0Ctrl.cs" />
      <Compile Include="Assets\script\page\page1Ctrl.cs" />
      <Compile Include="Assets\script\page\page2Ctrl.cs" />
      <Compile Include="Assets\script\page\page3Ctrl.cs" />
+     <Compile Include="Assets\script\page\page4Ctrl.cs" />
      <Compile Include="Assets\script\page\pageBase.cs" />
      <Compile Include="Assets\script\page\pageMgr.cs" />
      <None Include="Assets\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />

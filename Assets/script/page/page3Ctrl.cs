@@ -15,6 +15,8 @@ public class page3Ctrl : pageBase
 
 	void Awake () 
 	{
+		Button btn = nextBtn.GetComponent<Button> ();
+		btn.onClick.AddListener (nextPage);
 	}
 	
 	// Update is called once per frame
@@ -25,7 +27,7 @@ public class page3Ctrl : pageBase
 
 	public override void onPageEnable() 
 	{
-		UIMgr.Instance.setBackground (BG.P0);
+		UIMgr.Instance.setBackground (BG.P3);
 		setFocusImage( 0 );
 	}
 
