@@ -28,7 +28,8 @@ public class page4Ctrl : pageBase
 		UIMgr.Instance.setBackground (BG.P4);
 
 		budgetCtrl ctrl = budgetUI.GetComponent<budgetCtrl> ();
-		ctrl.setBudgetNumber ( DataMgr.Instance.getBudget() );
+		// ctrl.setBudgetNumber ( DataMgr.Instance.getBudget() );
+		ctrl.showInputBudge();
 	}
 
 	public void nextPage()
