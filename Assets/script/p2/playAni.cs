@@ -37,6 +37,8 @@ public class playAni : MonoBehaviour
 	public void play()
 	{
 		StopAllCoroutines ();
+		if (!gameObject.activeInHierarchy) {return;}
+
 		StartCoroutine ( nextSprite() );
 	}
 

@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using Const;
 
-public class page4Ctrl : pageBase 
+public class page7Ctrl : pageBase 
 {
 	[SerializeField]
-	private GameObject budgetUI;
+	private GameObject stepUI;
+	[SerializeField]
+	private GameObject vedio;
 
 	void Awake () 
 	{
 		circleColor = CIRCLE_COLOR.YELLOW;
 
-		Button btn = nextBtn.GetComponent<Button> ();
-		btn.onClick.AddListener (nextPage);
 	}
 	
 	// Update is called once per frame
@@ -25,14 +25,19 @@ public class page4Ctrl : pageBase
 
 	public override void onPageEnable() 
 	{
-		UIMgr.Instance.setBackground (BG.P4);
+		UIMgr.Instance.setBackground (BG.P6);
 
-		budgetCtrl ctrl = budgetUI.GetComponent<budgetCtrl> ();
-		ctrl.setBudgetNumber ( DataMgr.Instance.getBudget() );
+	}
+
+	public void clickGO()
+	{
+		// TODO 影片播放測試
+		nextPage ();
 	}
 
 	public void nextPage()
 	{
-		pageMgr.Instance.nextPage (5);
+		pageMgr.Instance.homePage();
 	}
+
 }

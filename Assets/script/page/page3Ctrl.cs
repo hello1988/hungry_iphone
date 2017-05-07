@@ -33,7 +33,7 @@ public class page3Ctrl : pageBase
 
 	public void onFilterClick( int filterIndex )
 	{
-		
+		setFocusImage (filterIndex);
 	}
 
 	public void onItemDrop( GameObject obj )

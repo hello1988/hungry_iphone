@@ -91,6 +91,7 @@
      <Compile Include="Assets\script\page\page4Ctrl.cs" />
      <Compile Include="Assets\script\page\page5Ctrl.cs" />
      <Compile Include="Assets\script\page\page6Ctrl.cs" />
+     <Compile Include="Assets\script\page\page7Ctrl.cs" />
      <Compile Include="Assets\script\page\pageBase.cs" />
      <Compile Include="Assets\script\page\pageMgr.cs" />
      <None Include="Assets\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />
