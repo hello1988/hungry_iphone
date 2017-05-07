@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Const;
 
 namespace Const
 {
@@ -11,6 +12,8 @@ namespace Const
 		P0,
 		P3,
 		P4,
+		P5,
+		P6,
 	}
 
 	public enum CIRCLE_COLOR
@@ -25,6 +28,13 @@ namespace Const
 		WAY2,
 		WAY3,
 	}
+
+	public enum TRAFFIC_WAY
+	{
+		WALK,
+		TYPE_IN,
+		MRT,
+	}
 }
 
 public class DataMgr : MonoBehaviour 
@@ -36,6 +46,7 @@ public class DataMgr : MonoBehaviour
 	}
 
 	private int budget = 300;
+	TRAFFIC_WAY trafficWay = TRAFFIC_WAY.WALK;
 
 	// Use this for initialization
 	private void Awake ()
@@ -61,6 +72,16 @@ public class DataMgr : MonoBehaviour
 	public void setBudget ( int num )
 	{
 		budget = num;
+	}
+
+	public TRAFFIC_WAY getTrafficWay()
+	{
+		return trafficWay;
+	}
+
+	public void setTrafficWay(TRAFFIC_WAY way)
+	{
+		trafficWay = way;
 	}
 }
 
