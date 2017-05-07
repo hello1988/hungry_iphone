@@ -10,6 +10,10 @@ public class page7Ctrl : pageBase
 	private GameObject stepUI;
 	[SerializeField]
 	private GameObject vedio;
+	[SerializeField]
+	private Sprite[] stepSprite;
+	[SerializeField]
+	private scrollCtrl stepScroll;
 
 	void Awake () 
 	{
@@ -27,6 +31,14 @@ public class page7Ctrl : pageBase
 	{
 		UIMgr.Instance.setBackground (BG.P6);
 
+		stepScroll.reset ();
+		for( int index = 0;index < stepSprite.Length;index++ )
+		{
+			GameObject newObj = stepScroll.addItem ();
+
+			Image img = newObj.GetComponent<Image> ();
+			img.sprite = stepSprite [index];
+		}
 	}
 
 	public void clickGO()
