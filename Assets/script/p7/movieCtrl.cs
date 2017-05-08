@@ -10,11 +10,13 @@ public class movieCtrl : MonoBehaviour
 	private MovieTexture navigationMov;
 	// Use this for initialization
 	void Start () {
+		if (navigationMov != null) 
+		{
+			Renderer r = GetComponent<Renderer> ();
+			r.material.mainTexture = navigationMov as MovieTexture;
 
-		Renderer r = GetComponent<Renderer> ();
-		r.material.mainTexture = navigationMov as MovieTexture;
-
-		navigationMov.loop = true;
+			navigationMov.loop = true;
+		}
 	}
 	
 	// Update is called once per frame
@@ -28,11 +30,15 @@ public class movieCtrl : MonoBehaviour
 
 	public void play()
 	{
+		if (navigationMov == null) {return;}
+
 		navigationMov.Play ();
 	}
 
 	public void stop()
 	{
+		if (navigationMov == null) {return;}
+
 		navigationMov.Stop ();
 	}
 }
