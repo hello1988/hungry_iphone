@@ -62,8 +62,16 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 
 	public void OnPointerUp (PointerEventData eventData)
 	{
+		touchPoint.transform.position = UIMgr.Instance.getCurMousePosition ();
+		Vector3 endPos = touchPoint.transform.localPosition;
+
 		pressing = false;
 		searchImg.transform.localPosition = oriPos;
+
+		if( Math.Abs((endPos-startPos).x) < 10 )
+		{
+			onSearchImgClick ();
+		}
 	}
 
 	public void OnDrag (PointerEventData eventData)

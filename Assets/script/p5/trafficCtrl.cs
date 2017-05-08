@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Const;
 
-public class trafficCtrl : MonoBehaviour 
+public class trafficCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IDragHandler
 {
 	[SerializeField]
 	private Sprite[] trafficSprite;
@@ -51,8 +51,16 @@ public class trafficCtrl : MonoBehaviour
 
 	public void OnPointerUp (PointerEventData eventData)
 	{
+		touchPoint.transform.position = UIMgr.Instance.getCurMousePosition ();
+		Vector3 endPos = touchPoint.transform.localPosition;
+
 		pressing = false;
 		trafficImg.transform.localPosition = oriPos;
+
+		if( Math.Abs((endPos-startPos).x) < 10 )
+		{
+			onTrafficImgClick ();
+		}
 	}
 
 	public void OnDrag (PointerEventData eventData)
