@@ -14,11 +14,17 @@ public class page7Ctrl : pageBase
 	private Sprite[] stepSprite;
 	[SerializeField]
 	private scrollCtrl stepScroll;
+	[SerializeField]
+	private float vedioSec = 3;
+	[SerializeField]
+	private movieCtrl movie;
 
 	void Awake () 
 	{
 		circleColor = CIRCLE_COLOR.YELLOW;
 
+		Button btn = nextBtn.GetComponent<Button> ();
+		btn.onClick.AddListener (nextPage);
 	}
 	
 	// Update is called once per frame
@@ -30,6 +36,11 @@ public class page7Ctrl : pageBase
 	public override void onPageEnable() 
 	{
 		UIMgr.Instance.setBackground (BG.P6);
+
+		stepUI.SetActive (true);
+		vedio.SetActive (false);
+		nextBtn.SetActive (false);
+		movie.stop ();
 
 		stepScroll.reset ();
 		for( int index = 0;index < stepSprite.Length;index++ )
@@ -44,11 +55,24 @@ public class page7Ctrl : pageBase
 	public void clickGO()
 	{
 		// TODO 影片播放測試
-		nextPage ();
+		// nextPage ();
+		stepUI.SetActive(false);
+		vedio.SetActive (true);
+
+		movie.play ();
+		StartCoroutine (showHomeBtn());
+	}
+
+	public IEnumerator showHomeBtn()
+	{
+		yield return new WaitForSeconds (vedioSec);
+
+		nextBtn.SetActive (true);
 	}
 
 	public void nextPage()
 	{
+		movie.stop ();
 		pageMgr.Instance.homePage();
 	}
 
