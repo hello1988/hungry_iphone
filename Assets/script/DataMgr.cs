@@ -10,6 +10,7 @@ namespace Const
 	public enum BG
 	{
 		P0,
+		P1,
 		P3,
 		P4,
 		P5,
@@ -35,6 +36,8 @@ namespace Const
 		TYPE_IN,
 		MRT,
 	}
+
+	public delegate void backAction();
 }
 
 public class DataMgr : MonoBehaviour 
@@ -47,6 +50,7 @@ public class DataMgr : MonoBehaviour
 
 	private int budget = 300;
 	TRAFFIC_WAY trafficWay = TRAFFIC_WAY.WALK;
+	private int p1Mode = 0;
 
 	// Use this for initialization
 	private void Awake ()
@@ -82,6 +86,20 @@ public class DataMgr : MonoBehaviour
 	public void setTrafficWay(TRAFFIC_WAY way)
 	{
 		trafficWay = way;
+	}
+
+	/**
+	* mode 0 評價UI
+	* mode 1 統計UI
+	*/
+	public void setP1Mode( int mode )
+	{
+		p1Mode = mode;
+	}
+
+	public int getP1Mode()
+	{
+		return p1Mode;
 	}
 }
 

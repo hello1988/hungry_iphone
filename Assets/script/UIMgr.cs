@@ -60,4 +60,10 @@ public class UIMgr : MonoBehaviour
 		float distance = getplaneDistance ();
 		return Camera.main.ScreenToWorldPoint( new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance) );
 	}
+
+	public void registBackAction(backAction action)
+	{
+		homeCtrl ctrl = home.GetComponent<homeCtrl> ();
+		ctrl.registBackAction (action);
+	}
 }

@@ -73,6 +73,9 @@
      <Compile Include="Assets\script\homeCtrl.cs" />
      <Compile Include="Assets\script\maskClick.cs" />
      <Compile Include="Assets\script\p0\numberCtrl.cs" />
+     <Compile Include="Assets\script\p1\mode1Ctrl.cs" />
+     <Compile Include="Assets\script\p1\reportCtrl.cs" />
+     <Compile Include="Assets\script\p1\statisticsClick.cs" />
      <Compile Include="Assets\script\p2\passEvent.cs" />
      <Compile Include="Assets\script\p2\playAni.cs" />
      <Compile Include="Assets\script\p2\searchCtrl.cs" />

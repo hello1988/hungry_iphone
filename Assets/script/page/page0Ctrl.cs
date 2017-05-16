@@ -51,6 +51,13 @@ public class page0Ctrl : pageBase
 
 	public void showEvaluationUI()
 	{
+		DataMgr.Instance.setP1Mode (0);
+		pageMgr.Instance.nextPage (1);
+	}
+
+	public void showStatisticsUI()
+	{
+		DataMgr.Instance.setP1Mode (1);
 		pageMgr.Instance.nextPage (1);
 	}
 

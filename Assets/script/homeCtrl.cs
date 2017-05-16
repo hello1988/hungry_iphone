@@ -22,10 +22,12 @@ public class homeCtrl : MonoBehaviour
 	private GameObject mask;
 
 	private Vector3 menuOriPos = Vector3.zero;
-	// Use this for initialization
+	private Stack<backAction> backStack;
+
 	void Awake () 
 	{
 		menuOriPos = menu.transform.localPosition;
+		backStack = new Stack<backAction> ();
 	}
 
 	void OnEnable()
@@ -65,10 +67,24 @@ public class homeCtrl : MonoBehaviour
 		mask.SetActive (false);
 	}
 
+	public void registBackAction(backAction action)
+	{
+		backStack.Push (action);
+	}
+
 	public void onBackClick()
 	{
 		hideMenu ();
-		pageMgr.Instance.prePage ();
+		if( backStack.Count <= 0 )
+		{
+			pageMgr.Instance.prePage ();
+		}
+		else
+		{
+			backAction action = backStack.Pop ();
+			action ();
+		}
+			
 	}
 
 	public void onInfoClick()
