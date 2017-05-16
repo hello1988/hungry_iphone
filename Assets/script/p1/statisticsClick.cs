@@ -34,25 +34,24 @@ public class statisticsClick : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 		// -72~145	happy
 		if( (angle >= -72) && (angle <= 145) )
 		{
-			modeCtrl.showReport (0);
+			reportIndex = 0;
 		}
 		// -72~-129	soso
 		else if( (angle < -72) && (angle >= -129) )
 		{
-			modeCtrl.showReport (1);
+			reportIndex = 1;
 		}
 		// else bad
 		else
 		{
-			modeCtrl.showReport (2);
+			reportIndex = 2;
 		}
-
 
 	}
 
 	public void OnPointerUp (PointerEventData eventData)
 	{
-		// modeCtrl.showReport (reportIndex);
+		modeCtrl.showReport (reportIndex);
 	}
 
 	private double getAngle(Vector3 a, Vector3 b)

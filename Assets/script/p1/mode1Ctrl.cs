@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Const;
 
-public class mode1Ctrl : MonoBehaviour 
+public class mode1Ctrl : MonoBehaviour
 {
 	[SerializeField]
 	private GameObject statisticsUI;
@@ -10,8 +11,12 @@ public class mode1Ctrl : MonoBehaviour
 	private GameObject reportUI;
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start () 
+	{
+		slideDectect dect = GetComponent<slideDectect> ();
+
+		dect.registCallBack (DIRECTION.LEFT, slideLeft);
+		dect.registCallBack (DIRECTION.RIGHT, slideRight);
 	}
 	
 	// Update is called once per frame
@@ -42,5 +47,15 @@ public class mode1Ctrl : MonoBehaviour
 	{
 		statisticsUI.SetActive (true);
 		reportUI.SetActive (false);
+	}
+
+	public void slideLeft(float distance)
+	{
+		Debug.logger.Log (string.Format("slideLeft : {0}",distance));
+	}
+
+	public void slideRight(float distance)
+	{
+		Debug.logger.Log (string.Format("slideRight : {0}",distance));
 	}
 }

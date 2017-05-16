@@ -37,7 +37,16 @@ namespace Const
 		MRT,
 	}
 
+	public enum DIRECTION
+	{
+		UP,
+		RIGHT,
+		DOWN,
+		LEFT,
+	}
+
 	public delegate void backAction();
+	public delegate void slideCallBack(float distance);
 }
 
 public class DataMgr : MonoBehaviour 
