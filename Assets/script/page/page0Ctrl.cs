@@ -29,7 +29,7 @@ public class page0Ctrl : pageBase
 		UIMgr.Instance.setBackground (BG.P0);
 		setBlueTooth(false);
 
-		setEvaluationNumber (5);
+		setEvaluationNumber (2);
 	}
 
 	public void switchBlueTooth()

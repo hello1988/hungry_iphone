@@ -40,4 +40,12 @@ public class page1Ctrl : pageBase
 		}
 		ctrl.init ();
 	}
+
+	public void changeMode( int mode )
+	{
+		UIMgr.Instance.clearBackAction ();
+		DataMgr.Instance.setP1Mode (mode);
+
+		onPageEnable ();
+	}
 }
