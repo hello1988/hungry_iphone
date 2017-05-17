@@ -88,6 +88,7 @@
      <Compile Include="Assets\script\p3\dragAndDrop.cs" />
      <Compile Include="Assets\script\p3\dragTip.cs" />
      <Compile Include="Assets\script\p4\budgetCtrl.cs" />
+     <Compile Include="Assets\script\p5\MrtCtrl.cs" />
      <Compile Include="Assets\script\p5\trafficCtrl.cs" />
      <Compile Include="Assets\script\p6\clickRestaurant.cs" />
      <Compile Include="Assets\script\p6\restaurantCtrl.cs" />

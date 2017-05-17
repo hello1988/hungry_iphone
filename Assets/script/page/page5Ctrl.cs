@@ -33,10 +33,21 @@ public class page5Ctrl : pageBase
 	{
 		trafficUI.SetActive (false);
 		MRTUI.SetActive (true);
+
+		MrtCtrl ctrl = MRTUI.GetComponent<MrtCtrl> ();
+		ctrl.showMRTLine ();
+		UIMgr.Instance.registBackAction (hideMRTUI);
+	}
+
+	public void hideMRTUI()
+	{
+		trafficUI.SetActive (true);
+		MRTUI.SetActive (false);
 	}
 
 	public void nextPage()
 	{
+		UIMgr.Instance.clearBackAction ();
 		pageMgr.Instance.nextPage (6);
 	}
 }
