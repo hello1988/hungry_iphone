@@ -72,6 +72,11 @@ public class homeCtrl : MonoBehaviour
 		backStack.Push (action);
 	}
 
+	public void clearBackAction()
+	{
+		backStack.Clear ();
+	}
+
 	public void onBackClick()
 	{
 		hideMenu ();

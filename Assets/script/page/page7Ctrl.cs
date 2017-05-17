@@ -49,13 +49,19 @@ public class page7Ctrl : pageBase
 
 			Image img = newObj.GetComponent<Image> ();
 			img.sprite = stepSprite [index];
+			if(index == (stepSprite.Length - 1) )
+			{
+				Button btn = newObj.AddComponent<Button> ();
+				btn.onClick.AddListener (clickGO);
+			}
 		}
+
+
 	}
 
 	public void clickGO()
 	{
 		// TODO 影片播放測試
-		// nextPage ();
 		stepUI.SetActive(false);
 		vedio.SetActive (true);
 

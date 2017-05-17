@@ -10,11 +10,12 @@ namespace Const
 	public enum BG
 	{
 		P0,
-		P1,
+		P1_1,
 		P3,
 		P4,
 		P5,
 		P6,
+		P1_0,
 	}
 
 	public enum CIRCLE_COLOR
@@ -60,6 +61,7 @@ public class DataMgr : MonoBehaviour
 	private int budget = 300;
 	TRAFFIC_WAY trafficWay = TRAFFIC_WAY.WALK;
 	private int p1Mode = 0;
+	private int faceID = 0;
 
 	// Use this for initialization
 	private void Awake ()
@@ -109,6 +111,16 @@ public class DataMgr : MonoBehaviour
 	public int getP1Mode()
 	{
 		return p1Mode;
+	}
+
+	public void setFaceID( int face )
+	{
+		faceID = face;
+	}
+
+	public int getFaceID()
+	{
+		return faceID;
 	}
 }
 

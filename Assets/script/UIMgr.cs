@@ -66,4 +66,10 @@ public class UIMgr : MonoBehaviour
 		homeCtrl ctrl = home.GetComponent<homeCtrl> ();
 		ctrl.registBackAction (action);
 	}
+
+	public void clearBackAction()
+	{
+		homeCtrl ctrl = home.GetComponent<homeCtrl> ();
+		ctrl.clearBackAction ();	
+	}
 }

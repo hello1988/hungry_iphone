@@ -98,7 +98,7 @@ public class pageMgr : MonoBehaviour
 		pageList [curPage].SetActive (true);
 		pageBase showPage = pageList [curPage].GetComponent<pageBase> ();
 		showPage.onPageEnable ();
-		UIMgr.Instance.setHomeBtnVisible (false);
+
 	}
 
 	public void resetData()

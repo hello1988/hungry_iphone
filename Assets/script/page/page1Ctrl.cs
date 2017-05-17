@@ -23,13 +23,21 @@ public class page1Ctrl : pageBase
 
 	public override void onPageEnable() 
 	{
-		UIMgr.Instance.setBackground (BG.P1);
-
 		int mode = DataMgr.Instance.getP1Mode ();
+
 		bool isShowMode0 = (mode == 0);
 		mode0.SetActive (isShowMode0);
 		mode1.SetActive (!isShowMode0);
 
-
+		modeCtrlBase ctrl = null;
+		if(mode == 0)
+		{
+			ctrl = mode0.GetComponent<mode0Ctrl> ();
+		}
+		else
+		{
+			ctrl = mode1.GetComponent<mode1Ctrl> ();
+		}
+		ctrl.init ();
 	}
 }

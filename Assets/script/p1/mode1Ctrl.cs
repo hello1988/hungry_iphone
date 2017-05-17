@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Const;
 
-public class mode1Ctrl : MonoBehaviour
+public class mode1Ctrl : modeCtrlBase
 {
 	[SerializeField]
 	private GameObject statisticsUI;
@@ -24,7 +24,7 @@ public class mode1Ctrl : MonoBehaviour
 		
 	}
 
-	public void init()
+	public override void init()
 	{
 		statisticsUI.SetActive (true);
 		reportUI.SetActive (false);
