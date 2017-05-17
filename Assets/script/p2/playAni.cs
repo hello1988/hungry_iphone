@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Const;
 
 public class playAni : MonoBehaviour 
 {
@@ -11,8 +12,9 @@ public class playAni : MonoBehaviour
 	private float swapSec = 3.0f;
 
 	private Sprite[] aniList;
-	private int spriteIndex;
-
+	private int spriteIndex = 0;
+	private bool isLoop = true;
+	private backAction completeCallBack = null;
 	void Awake () 
 	{
 		if ((spriteList != null) && (spriteList.Length > 0)) 
@@ -34,6 +36,12 @@ public class playAni : MonoBehaviour
 		img.sprite = aniList [spriteIndex];
 	}
 
+	public void setLoop( bool loop, backAction callBack=null )
+	{
+		isLoop = loop;
+		completeCallBack = callBack;
+	}
+
 	public void play()
 	{
 		StopAllCoroutines ();
@@ -49,11 +57,22 @@ public class playAni : MonoBehaviour
 
 	private IEnumerator nextSprite()
 	{
-		yield return new WaitForSeconds (swapSec);
-
-		spriteIndex = (spriteIndex + 1) % aniList.Length;
 		Image img = GetComponent<Image> ();
 		img.sprite = aniList [spriteIndex];
-		play ();
+		spriteIndex = (spriteIndex + 1) % aniList.Length;
+
+		yield return new WaitForSeconds (swapSec);
+
+		if (!isLoop && (spriteIndex >= (aniList.Length - 1))) 
+		{
+			if (completeCallBack != null) 
+			{
+				completeCallBack ();
+			}
+		}
+		else
+		{
+			play ();
+		}
 	}
 }

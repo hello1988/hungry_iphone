@@ -9,13 +9,11 @@ public class page7Ctrl : pageBase
 	[SerializeField]
 	private GameObject stepUI;
 	[SerializeField]
-	private GameObject vedio;
+	private GameObject navigation;
 	[SerializeField]
 	private Sprite[] stepSprite;
 	[SerializeField]
 	private scrollCtrl stepScroll;
-	[SerializeField]
-	private float vedioSec = 3;
 
 	void Awake () 
 	{
@@ -36,7 +34,7 @@ public class page7Ctrl : pageBase
 		UIMgr.Instance.setBackground (BG.P6);
 
 		stepUI.SetActive (true);
-		vedio.SetActive (false);
+		navigation.SetActive (false);
 		nextBtn.SetActive (false);
 
 		stepScroll.reset ();
@@ -60,15 +58,14 @@ public class page7Ctrl : pageBase
 	{
 		// TODO 影片播放測試
 		stepUI.SetActive(false);
-		vedio.SetActive (true);
+		navigation.SetActive (true);
 
-		StartCoroutine (showHomeBtn());
+		navigationCtrl ctrl = navigation.GetComponent<navigationCtrl> ();
+		ctrl.init ();
 	}
 
-	public IEnumerator showHomeBtn()
+	public void showHomeBtn()
 	{
-		yield return new WaitForSeconds (vedioSec);
-
 		nextBtn.SetActive (true);
 	}
 
