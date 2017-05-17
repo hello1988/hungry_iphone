@@ -16,8 +16,6 @@ public class page7Ctrl : pageBase
 	private scrollCtrl stepScroll;
 	[SerializeField]
 	private float vedioSec = 3;
-	[SerializeField]
-	private movieCtrl movie;
 
 	void Awake () 
 	{
@@ -40,7 +38,6 @@ public class page7Ctrl : pageBase
 		stepUI.SetActive (true);
 		vedio.SetActive (false);
 		nextBtn.SetActive (false);
-		movie.stop ();
 
 		stepScroll.reset ();
 		for( int index = 0;index < stepSprite.Length;index++ )
@@ -65,7 +62,6 @@ public class page7Ctrl : pageBase
 		stepUI.SetActive(false);
 		vedio.SetActive (true);
 
-		movie.play ();
 		StartCoroutine (showHomeBtn());
 	}
 
@@ -78,7 +74,6 @@ public class page7Ctrl : pageBase
 
 	public void nextPage()
 	{
-		movie.stop ();
 		pageMgr.Instance.homePage();
 	}
 
