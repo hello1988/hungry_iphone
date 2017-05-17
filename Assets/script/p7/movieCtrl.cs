@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class movieCtrl : MonoBehaviour 
 {
+	/*
 	[SerializeField]
 	private MovieTexture navigationMov;
 	// Use this for initialization
@@ -41,4 +42,9 @@ public class movieCtrl : MonoBehaviour
 
 		navigationMov.Stop ();
 	}
+	*/
+
+	public void play(){}
+
+	public void stop(){}
 }
