@@ -93,6 +93,8 @@
      <Compile Include="Assets\script\p6\restaurantCtrl.cs" />
      <Compile Include="Assets\script\p6\restaurantDetail.cs" />
      <Compile Include="Assets\script\p6\scrollCtrl.cs" />
+     <Compile Include="Assets\script\p6\searchWifi.cs" />
+     <Compile Include="Assets\script\p6\tweenAlpha.cs" />
      <Compile Include="Assets\script\page\page0Ctrl.cs" />
      <Compile Include="Assets\script\page\page1Ctrl.cs" />
      <Compile Include="Assets\script\page\page2Ctrl.cs" />

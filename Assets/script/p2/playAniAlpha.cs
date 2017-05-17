@@ -24,8 +24,11 @@ public class playAniAlpha : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
+		if( !gameObject.activeInHierarchy) {return ;}
 
+		shadow.transform.localPosition = transform.localPosition;
 	}
 
 	public void setAniList( Sprite[] newSpriteList )

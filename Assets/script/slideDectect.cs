@@ -52,7 +52,7 @@ public class slideDectect : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 		{
 			doCallBack (callBackMap [DIRECTION.RIGHT], Math.Abs (offset.x));
 		}
-		else if ( offset.x < 0 )
+		else if ( offset.x <= 0 )
 		{
 			doCallBack (callBackMap [DIRECTION.LEFT], Math.Abs (offset.x));
 		}
@@ -61,7 +61,7 @@ public class slideDectect : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 		{
 			doCallBack (callBackMap [DIRECTION.UP], Math.Abs (offset.y));
 		}
-		else if ( offset.y < 0 )
+		else if ( offset.y <= 0 )
 		{
 			doCallBack (callBackMap [DIRECTION.DOWN], Math.Abs (offset.y));
 		}
