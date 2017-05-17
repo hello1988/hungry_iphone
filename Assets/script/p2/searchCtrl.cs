@@ -16,6 +16,8 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 	private GameObject[] dotList;
 	[SerializeField]
 	private page2Ctrl pageCtrl;
+	[SerializeField]
+	private float tweenSec = 0.3f;
 
 	private Sprite[][] aniSprite;
 	private SEARCH_WAY curSearchWay = SEARCH_WAY.WAY1;
@@ -41,7 +43,7 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 			aniSprite [aniIndex][1] = searchSprite[index+1];
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		
@@ -89,35 +91,61 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 		if( (offset.x < -100) && (iWay < totalWay-1) )
 		{
 			pressing = false;
-			LeanTween.moveLocalX (searchImg, -1000, 0.3f).setOnComplete (nextWay);
+			nextWay();
 		}
 		else if( (offset.x > 100) && (iWay > 0) )
 		{
 			pressing = false;
-			LeanTween.moveLocalX (searchImg, 1000, 0.3f).setOnComplete (preWay);
+			preWay();
 		}
 	}
 
 	public void nextWay()
 	{
-		searchImg.transform.localPosition = new Vector3 (1000, 0, 0);
+		int totalWay = Enum.GetNames (typeof(SEARCH_WAY)).Length;
+		int iWay = (int)curSearchWay;
+		if( iWay >= (totalWay-1) )
+		{
+			searchImg.transform.localPosition = oriPos;
+			return ;
+		}
+
+
 		playAni ani = searchImg.GetComponent<playAni> ();
 		ani.stop ();
 
-		int totalWay = Enum.GetNames (typeof(SEARCH_WAY)).Length;
-		SEARCH_WAY way = (SEARCH_WAY)(((int)curSearchWay+1)%totalWay);
+		slideAni sAni = searchImg.GetComponent<slideAni> ();
+		sAni.makeShadow (oriPos);
+
+		iWay++;
+		SEARCH_WAY way = (SEARCH_WAY)iWay;
 		setSearchWay (way);
+
+		Vector3 moveDir = new Vector3 ( -800, 0, 0);
+		sAni.playAni (moveDir, tweenSec);
 	}
 
 	public void preWay()
 	{
-		searchImg.transform.localPosition = new Vector3 (-1000, 0, 0);
+		int iWay = (int)curSearchWay;
+		if( iWay <= 0 )
+		{
+			searchImg.transform.localPosition = oriPos;
+			return ;
+		}
+
 		playAni ani = searchImg.GetComponent<playAni> ();
 		ani.stop ();
 
-		int totalWay = Enum.GetNames (typeof(SEARCH_WAY)).Length;
-		SEARCH_WAY way = (SEARCH_WAY)(((int)curSearchWay+totalWay-1)%totalWay);
+		slideAni sAni = searchImg.GetComponent<slideAni> ();
+		sAni.makeShadow (oriPos);
+
+		iWay--;
+		SEARCH_WAY way = (SEARCH_WAY)iWay;
 		setSearchWay (way);
+
+		Vector3 moveDir = new Vector3 ( 800, 0, 0);
+		sAni.playAni (moveDir, tweenSec);
 	}
 
 	public void onSearchImgClick()
@@ -128,16 +156,6 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 
 	private void setSearchWay( SEARCH_WAY way, bool playAni = true )
 	{
-		// Debug.logger.Log (string.Format("setSearchWay({0}, {1})",way, playAni));
-		if (playAni) 
-		{
-			LeanTween.moveLocalX (searchImg, oriPos.x, 0.3f);
-		}
-		else
-		{
-			searchImg.transform.localPosition = oriPos;
-		}
-
 		curSearchWay = way;
 		playAni ani = searchImg.GetComponent<playAni> ();
 		ani.setAniList (aniSprite[(int)way]);
@@ -147,7 +165,7 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 		{
 			float scale = ( (int)way == index ) ? 1.5f:1.0f;
 
-			LeanTween.scale (dotList [index], Vector3.one * scale, 0.3f);
+			LeanTween.scale (dotList [index], Vector3.one * scale, tweenSec);
 		}
 	}
 }

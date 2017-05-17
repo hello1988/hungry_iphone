@@ -37,7 +37,7 @@ public class passEvent : MonoBehaviour , IPointerUpHandler, IPointerDownHandler,
 	{
 		foreach (GameObject obj in targetList) 
 		{
-			obj.SendMessage (functionName, eventData);
+			obj.SendMessage (functionName, eventData, SendMessageOptions.DontRequireReceiver);
 		}
 	}
 }

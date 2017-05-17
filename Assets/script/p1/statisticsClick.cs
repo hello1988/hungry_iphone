@@ -11,6 +11,7 @@ public class statisticsClick : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
 	private GameObject touchPiont;
 	private int reportIndex = 0;
+	private Vector3 startPos;
 
 	void Awake () 
 	{
@@ -26,10 +27,10 @@ public class statisticsClick : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 	public void OnPointerDown (PointerEventData eventData)
 	{
 		touchPiont.transform.position = UIMgr.Instance.getCurMousePosition ();
-		Vector3 pos = touchPiont.transform.localPosition;
+		startPos = touchPiont.transform.localPosition;
 
 		// 計算兩者之間角度
-		double angle = getAngle( transform.localPosition, pos );
+		double angle = getAngle( transform.localPosition, startPos );
 
 		// -72~145	happy
 		if( (angle >= -72) && (angle <= 145) )
@@ -51,6 +52,15 @@ public class statisticsClick : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
 	public void OnPointerUp (PointerEventData eventData)
 	{
+		touchPiont.transform.position = UIMgr.Instance.getCurMousePosition ();
+		Vector3 endPos = touchPiont.transform.localPosition;
+
+		Vector3 offset = endPos - startPos;
+		if ((Math.Abs (offset.x) > 10) || (Math.Abs (offset.y) > 10)) 
+		{
+			return;
+		}
+
 		modeCtrl.showReport (reportIndex);
 	}
 

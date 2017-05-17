@@ -38,11 +38,14 @@ public class page6Ctrl : pageBase
 
 	public void nextPage()
 	{
+		UIMgr.Instance.clearBackAction ();
 		pageMgr.Instance.nextPage (7);
 	}
 
 	public void showDetailUI( int restaurantID )
 	{
+		UIMgr.Instance.registBackAction (hideDetailUI);
+
 		restaurantUI.SetActive (false);
 		detailUI.SetActive (true);
 
@@ -53,5 +56,11 @@ public class page6Ctrl : pageBase
 	public void onItemDrop(GameObject obj)
 	{
 		
+	}
+
+	public void hideDetailUI()
+	{
+		restaurantUI.SetActive (true);
+		detailUI.SetActive (false);
 	}
 }

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class slideAni : MonoBehaviour 
 {
 	private GameObject shadow;
-	// Use this for initialization
+	private Vector3 finalPos;
+
 	void Awake () 
 	{
 		shadow = new GameObject ("shadow");
@@ -22,6 +23,11 @@ public class slideAni : MonoBehaviour
 
 	public void makeShadow()
 	{
+		makeShadow (transform.localPosition);
+	}
+
+	public void makeShadow( Vector3 finalPossition )
+	{
 		shadow.SetActive (true);
 
 		Image shadowImg = shadow.GetComponent<Image> ();
@@ -34,6 +40,8 @@ public class slideAni : MonoBehaviour
 		RectTransform shadowRect = shadow.GetComponent<RectTransform> ();
 		RectTransform rect = GetComponent<RectTransform> ();
 		shadowRect.sizeDelta = rect.sizeDelta;
+
+		finalPos = finalPossition;
 	}
 
 	public void playAni( Vector3 moveDir, float moveSec )
@@ -42,7 +50,7 @@ public class slideAni : MonoBehaviour
 
 		Vector3 shadowPos = shadow.transform.localPosition;
 
-		LeanTween.moveLocal (gameObject, shadowPos, moveSec);
+		LeanTween.moveLocal (gameObject, finalPos, moveSec);
 		LeanTween.moveLocal (shadow, (shadowPos + moveDir), moveSec).setOnComplete(hideShadow);
 	}
 

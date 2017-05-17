@@ -16,6 +16,8 @@ public class trafficCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 	private GameObject[] dotList;
 	[SerializeField]
 	private page5Ctrl pageCtrl;
+	[SerializeField]
+	private float tweenSec = 0.3f;
 
 	private TRAFFIC_WAY curTrafficWay = TRAFFIC_WAY.WALK;
 	private GameObject touchPoint;
@@ -78,31 +80,44 @@ public class trafficCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 		if( (offset.x < -100) && (iWay < totalWay-1) )
 		{
 			pressing = false;
-			LeanTween.moveLocalX (trafficImg, -1000, 0.3f).setOnComplete (nextWay);
+			nextWay();
 		}
 		else if( (offset.x > 100) && (iWay > 0) )
 		{
 			pressing = false;
-			LeanTween.moveLocalX (trafficImg, 1000, 0.3f).setOnComplete (preWay);
+			preWay();
 		}
 	}
 
 	public void nextWay()
 	{
-		trafficImg.transform.localPosition = new Vector3 (1000, 0, 0);
-
 		int totalWay = Enum.GetNames (typeof(TRAFFIC_WAY)).Length;
-		TRAFFIC_WAY way = (TRAFFIC_WAY)(((int)curTrafficWay+1)%totalWay);
-		setTrafficWay (way);
+		int iWay = (int)curTrafficWay;
+		if( iWay >= (totalWay-1) ){return ;}
+
+		slideAni ani = trafficImg.GetComponent<slideAni> ();
+		ani.makeShadow (oriPos);
+
+		iWay++;
+		setTrafficWay ((TRAFFIC_WAY)iWay);
+
+		Vector3 moveDir = new Vector3 ( -800, 0, 0);
+		ani.playAni (moveDir, tweenSec);
 	}
 
 	public void preWay()
 	{
-		trafficImg.transform.localPosition = new Vector3 (-1000, 0, 0);
+		int iWay = (int)curTrafficWay;
+		if( iWay <= 0 ){return ;}
 
-		int totalWay = Enum.GetNames (typeof(TRAFFIC_WAY)).Length;
-		TRAFFIC_WAY way = (TRAFFIC_WAY)(((int)curTrafficWay+totalWay-1)%totalWay);
-		setTrafficWay (way);
+		slideAni ani = trafficImg.GetComponent<slideAni> ();
+		ani.makeShadow (oriPos);
+
+		iWay--;
+		setTrafficWay ((TRAFFIC_WAY)iWay);
+
+		Vector3 moveDir = new Vector3 ( 800, 0, 0);
+		ani.playAni (moveDir, tweenSec);
 	}
 
 	public void onTrafficImgClick()
@@ -121,16 +136,6 @@ public class trafficCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
 	private void setTrafficWay( TRAFFIC_WAY way, bool playAni = true )
 	{
-		// Debug.logger.Log (string.Format("setTrafficWay({0}, {1})",way, playAni));
-		if (playAni) 
-		{
-			LeanTween.moveLocalX (trafficImg, oriPos.x, 0.3f);
-		}
-		else
-		{
-			trafficImg.transform.localPosition = oriPos;
-		}
-
 		curTrafficWay = way;
 		Image img = trafficImg.GetComponent<Image> ();
 		img.sprite = trafficSprite [(int)way];
@@ -139,7 +144,7 @@ public class trafficCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 		{
 			float scale = ( (int)way == index ) ? 1.5f:1.0f;
 
-			LeanTween.scale (dotList [index], Vector3.one * scale, 0.3f);
+			LeanTween.scale (dotList [index], Vector3.one * scale, tweenSec);
 		}
 	}
 }

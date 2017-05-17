@@ -20,8 +20,8 @@ public class menuUICtrl : MonoBehaviour
 	void Start () 
 	{
 		slideDectect dect = menuNameImg.GetComponent<slideDectect> ();
-		dect.registCallBack (DIRECTION.LEFT, nextMenu);
-		dect.registCallBack (DIRECTION.RIGHT, preMenu);
+		dect.registCallBack (DIRECTION.UP, nextMenu);
+		dect.registCallBack (DIRECTION.DOWN, preMenu);
 	}
 	
 	// Update is called once per frame
@@ -47,7 +47,7 @@ public class menuUICtrl : MonoBehaviour
 		curMenu++;
 		menuNameImg.sprite = menuNameList[curMenu];
 
-		Vector3 moveDir = new Vector3 ( -800, 0, 0);
+		Vector3 moveDir = new Vector3 ( 0, 900, 0);
 		ani.playAni (moveDir, aniSec);
 	}
 
@@ -62,7 +62,7 @@ public class menuUICtrl : MonoBehaviour
 		curMenu--;
 		menuNameImg.sprite = menuNameList[curMenu];
 
-		Vector3 moveDir = new Vector3 ( 800, 0, 0);
+		Vector3 moveDir = new Vector3 ( 0, -900, 0);
 		ani.playAni (moveDir, aniSec);
 	}
 }
