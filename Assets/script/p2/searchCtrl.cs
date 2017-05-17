@@ -111,7 +111,7 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 		}
 
 
-		playAni ani = searchImg.GetComponent<playAni> ();
+		playAniAlpha ani = searchImg.GetComponent<playAniAlpha> ();
 		ani.stop ();
 
 		slideAni sAni = searchImg.GetComponent<slideAni> ();
@@ -134,7 +134,7 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 			return ;
 		}
 
-		playAni ani = searchImg.GetComponent<playAni> ();
+		playAniAlpha ani = searchImg.GetComponent<playAniAlpha> ();
 		ani.stop ();
 
 		slideAni sAni = searchImg.GetComponent<slideAni> ();
@@ -157,7 +157,7 @@ public class searchCtrl : MonoBehaviour, IPointerUpHandler, IPointerDownHandler,
 	private void setSearchWay( SEARCH_WAY way, bool playAni = true )
 	{
 		curSearchWay = way;
-		playAni ani = searchImg.GetComponent<playAni> ();
+		playAniAlpha ani = searchImg.GetComponent<playAniAlpha> ();
 		ani.setAniList (aniSprite[(int)way]);
 		ani.play ();
 

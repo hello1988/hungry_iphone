@@ -83,6 +83,7 @@
      <Compile Include="Assets\script\p1\summitUICtrl.cs" />
      <Compile Include="Assets\script\p2\passEvent.cs" />
      <Compile Include="Assets\script\p2\playAni.cs" />
+     <Compile Include="Assets\script\p2\playAniAlpha.cs" />
      <Compile Include="Assets\script\p2\searchCtrl.cs" />
      <Compile Include="Assets\script\p3\dragAndDrop.cs" />
      <Compile Include="Assets\script\p3\dragTip.cs" />
