@@ -25,8 +25,9 @@ public class budgetCtrl : MonoBehaviour
 		inputBudge.SetActive (false);
 		budgeNumber.SetActive (true);
 
-		numberCtrl ctrl = budgeNumber.GetComponent<numberCtrl> ();
-		ctrl.setValue (num);
+		Text txt = budgeNumber.GetComponent<Text> ();
+		txt.text = string.Format ("${0}",num);
+
 	}
 
 	public void showInputBudge()
@@ -48,7 +49,8 @@ public class budgetCtrl : MonoBehaviour
 		if (!int.TryParse (inputField.text, out newBudget)) {return;}
 
 		DataMgr.Instance.setBudget (newBudget);
-		numberCtrl ctrl = budgeNumber.GetComponent<numberCtrl> ();
-		ctrl.setValue (newBudget);
+
+		Text txt = budgeNumber.GetComponent<Text> ();
+		txt.text = string.Format ("${0}",newBudget);
 	}
 }
