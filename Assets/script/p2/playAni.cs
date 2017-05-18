@@ -53,6 +53,9 @@ public class playAni : MonoBehaviour
 	public void stop()
 	{
 		StopAllCoroutines ();
+
+		Image img = GetComponent<Image> ();
+		img.sprite = aniList [0];
 	}
 
 	private IEnumerator nextSprite()
