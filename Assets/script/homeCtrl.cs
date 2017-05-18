@@ -33,6 +33,7 @@ public class homeCtrl : MonoBehaviour
 	void OnEnable()
 	{
 		hideMenu ();
+		hideCustomInfo ();
 	}
 
 	// Update is called once per frame
@@ -114,6 +115,7 @@ public class homeCtrl : MonoBehaviour
 	public void OnMaskClick()
 	{
 		hideHomeUI ();
+		hideCustomInfo ();
 	}
 
 	private void showCustomInfo()
