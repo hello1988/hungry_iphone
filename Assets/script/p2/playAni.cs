@@ -65,6 +65,7 @@ public class playAni : MonoBehaviour
 
 		if (!isLoop && (spriteIndex >= (aniList.Length - 1))) 
 		{
+			img.sprite = aniList [spriteIndex];
 			if (completeCallBack != null) 
 			{
 				completeCallBack ();
